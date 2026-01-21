@@ -1,0 +1,71 @@
+{
+  "info": {
+    "name": "Posts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    }
+  ],
+  "item": [
+    {
+      "name": "Listar todos os posts",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/posts"
+      }
+    },
+    {
+      "name": "Buscar post por ID",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/posts/{{postId}}"
+      }
+    },
+    {
+      "name": "Buscar posts por termo",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/posts/search?q=primeiro",
+          "host": ["{{baseUrl}}"],
+          "path": ["posts", "search"],
+          "query": [{ "key": "q", "value": "primeiro" }]
+        }
+      }
+    },
+    {
+      "name": "Criar post",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/posts",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Meu novo post\",\n  \"content\": \"Este e o conteudo do meu post muito interessante\",\n  \"author\": \"Joao Silva\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Atualizar post",
+      "request": {
+        "method": "PUT",
+        "url": "{{baseUrl}}/posts/{{postId}}",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Titulo atualizado\",\n  \"content\": \"Conteudo atualizado do post\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Deletar post",
+      "request": {
+        "method": "DELETE",
+        "url": "{{baseUrl}}/posts/{{postId}}"
+      }
+    }
+  ]
+}
