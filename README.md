@@ -1,4 +1,4 @@
-# Tech Challenger 2 - API de Posts
+# Tech Challenger 2 - API de Posts - Documentação
 
 API RESTful para gerenciamento de posts, desenvolvida com Node.js, TypeScript, Express e PostgreSQL.
 
